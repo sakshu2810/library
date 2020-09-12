@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% block head_title %} {{ block.super }} Author {{
+author.name }} {% endblock head_title %} {% block content %}
+<h4>Author Info:</h4>
+<div class="card mb-3" style="max-width: 540px">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="{{ author.photo.url }}" class="card-img" alt="..." />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Name: {{ author.name }}</h5>
+        <p class="card-text">Surname: {{ author.surname }}</p>
+        <p class="card-text">State: {{ author.country.name }}</p>
+        <p class="card-text">Libri scritti: {{ author.books.all|join:", "}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<a href="{% url 'library-home' %}">Return To Home</a>
+{% endblock content %}
